@@ -1,0 +1,1350 @@
+/* ============================================
+   Shun Arai Portfolio - Design System
+   テーマ：春・桜 / やわらかく上品で誠実な印象
+   ============================================ */
+
+/* --- Google Fonts 読み込み --- */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@400;500;600&display=swap');
+
+/* --- CSS変数（カラーパレット・フォント・共通値） --- */
+:root {
+  /* メインカラー */
+  --off-white: #FDFAF7;
+  --sakura-pink: #E8A0B0;
+  --mauve: #C9A0B4;
+  --charcoal: #2D2D2D;
+  --light-pink: #FCE8EF;
+  /* サブカラー */
+  --bg-section: #FEF5F7;
+  --bg-badge: #FEE8EF;
+  /* テキストカラー */
+  --text-main: #2D2D2D;
+  --text-sub: #555;
+  --text-muted: #888;
+  /* フォント */
+  --font-display: 'Cormorant Garamond', serif;
+  --font-serif: 'Noto Serif JP', serif;
+  --font-sans: 'Noto Sans JP', sans-serif;
+  /* レイアウト */
+  --header-height-pc: 72px;
+  --header-height-sp: 56px;
+  --max-width: 1080px;
+  --max-width-narrow: 800px;
+}
+
+/* --- リセット --- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--off-white);
+  color: var(--text-main);
+  line-height: 1.8;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s;
+}
+
+ul, ol { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  outline: none;
+  background: none;
+}
+button { cursor: pointer; }
+
+/* --- 共通レイアウト --- */
+.container {
+  width: 90%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.container--narrow {
+  width: 90%;
+  max-width: var(--max-width-narrow);
+  margin: 0 auto;
+}
+
+/* セクション共通パディング */
+.section { padding: 80px 0; }
+
+/* セクションラベル（英字小文字） */
+.section-label {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--mauve);
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+/* セクション見出し */
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--text-main);
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+/* セクション英字見出し（大きめ） */
+.section-title-en {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--text-main);
+  text-align: center;
+  letter-spacing: 0.08em;
+}
+
+.section-title-sub {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  color: var(--mauve);
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 48px;
+}
+
+/* 背景色ユーティリティ */
+.bg-off-white { background: var(--off-white); }
+.bg-section { background: var(--bg-section); }
+.bg-light-pink { background: var(--light-pink); }
+
+/* ============================================
+   ヘッダー
+   ============================================ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height-pc);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  background: transparent;
+  transition: background 0.4s ease;
+}
+
+/* スクロール時に背景色を付与 */
+.header.is-scrolled {
+  background: var(--off-white);
+}
+
+/* ロゴ */
+.header-logo {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: var(--text-main);
+}
+
+/* PCナビゲーション */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.header-nav a {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--text-main);
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.header-nav a:hover {
+  color: var(--sakura-pink);
+}
+
+/* 現在のページをピンクに */
+.header-nav a.is-active {
+  color: var(--sakura-pink);
+}
+
+/* お問い合わせボタン（ヘッダー内・桜花びら型） */
+.header-cta-petal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 68px;
+  animation: headerPetalFloat 3s ease-in-out infinite;
+  transition: transform 0.3s cubic-bezier(.34, 1.56, .64, 1);
+  flex-shrink: 0;
+}
+
+.header-cta-petal:hover {
+  transform: scale(1.08);
+}
+
+.header-cta-petal svg {
+  width: 100%;
+  height: 100%;
+}
+
+.header-cta-petal .petal-bg {
+  transition: fill 0.3s;
+}
+
+.header-cta-petal .petal-text {
+  transition: fill 0.3s;
+}
+
+.header-cta-petal:hover .petal-bg {
+  fill: #E8A0B0;
+}
+
+.header-cta-petal:hover .petal-text {
+  fill: #fff;
+}
+
+@keyframes headerPetalFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-1px); }
+}
+
+/* ハンバーガーボタン */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: var(--text-main);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* ハンバーガーアクティブ時（×に変形） */
+.hamburger.is-active span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.hamburger.is-active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.is-active span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* SPオーバーレイメニュー */
+.sp-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(253, 250, 247, 0.97);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1050;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.sp-menu.is-open {
+  display: flex;
+}
+
+.sp-menu a {
+  font-family: var(--font-display);
+  font-size: 24px;
+  letter-spacing: 0.15em;
+  color: var(--text-main);
+  text-transform: uppercase;
+}
+
+.sp-menu a.is-active {
+  color: var(--sakura-pink);
+}
+
+/* ============================================
+   フッター
+   ============================================ */
+.footer {
+  background: var(--charcoal);
+  padding: 56px 0 32px;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--off-white);
+  letter-spacing: 0.15em;
+  margin-bottom: 24px;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.footer-nav a {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--mauve);
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.footer-nav a:hover {
+  color: var(--sakura-pink);
+}
+
+.footer-privacy {
+  font-size: 11px;
+  color: var(--mauve);
+  margin-bottom: 24px;
+}
+
+.footer-privacy a {
+  color: var(--mauve);
+  transition: color 0.2s;
+}
+
+.footer-privacy a:hover {
+  color: var(--sakura-pink);
+}
+
+.footer-copy {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* ============================================
+   SP固定お問い合わせボタン
+   ============================================ */
+.sp-fixed-cta {
+  display: none;
+}
+
+/* ============================================
+   桜の花びら落下アニメーション
+   ============================================ */
+.sakura-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sakura-petal {
+  position: absolute;
+  top: -20px;
+  opacity: 0;
+  pointer-events: none;
+  animation: sakuraFall linear infinite;
+}
+
+/* 花びら落下キーフレーム */
+@keyframes sakuraFall {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) translateX(0) rotate(0deg);
+  }
+  10% {
+    opacity: var(--petal-opacity, 0.5);
+  }
+  90% {
+    opacity: var(--petal-opacity, 0.5);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(calc(100vh + 20px)) translateX(var(--petal-drift, 40px)) rotate(var(--petal-rotate, 360deg));
+  }
+}
+
+/* ============================================
+   プロフィール写真プレースホルダー
+   差し替えやすい構造：.profile-photo 内の SVG を img に置き換えるだけ
+   ============================================ */
+.profile-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 2px solid var(--sakura-pink);
+  overflow: hidden;
+  background: var(--bg-badge);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.profile-photo--large {
+  width: 300px;
+  height: 300px;
+}
+
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ============================================
+   フェードインアニメーション
+   ============================================ */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   横スクロールテキスト帯（マーキー）
+   ============================================ */
+.marquee {
+  background: var(--light-pink);
+  padding: 12px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-inner {
+  display: inline-flex;
+  animation: marqueeScroll 20s linear infinite;
+}
+
+.marquee-inner span {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--mauve);
+  padding-right: 40px;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ============================================
+   ヒーローセクション共通
+   ============================================ */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero--full { height: 100vh; }
+.hero--medium { height: 40vh; min-height: 280px; }
+.hero--small { height: 30vh; min-height: 220px; }
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 400;
+  color: var(--text-main);
+  letter-spacing: 0.08em;
+  z-index: 2;
+}
+
+.hero-subtitle {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  color: var(--mauve);
+  margin-top: 8px;
+  z-index: 2;
+}
+
+/* ============================================
+   SCROLLインジケーター（テキスト＋下矢印）
+   ============================================ */
+.scroll-indicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  animation: scrollBounce 1.5s ease-in-out infinite;
+}
+
+.scroll-text {
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--sakura-pink);
+}
+
+.scroll-indicator span:last-child {
+  font-family: var(--font-display);
+  font-size: 24px;
+  color: var(--sakura-pink);
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(4px); }
+}
+
+/* ============================================
+   カード共通
+   ============================================ */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card-thumbnail {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-name {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.card-tag {
+  display: inline-block;
+  background: var(--bg-badge);
+  color: var(--sakura-pink);
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+.card-comment {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ============================================
+   ボタン共通
+   ============================================ */
+.btn-outline {
+  display: inline-block;
+  border: 1px solid var(--sakura-pink);
+  color: var(--sakura-pink);
+  padding: 12px 32px;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  transition: background 0.2s, color 0.2s;
+  text-align: center;
+}
+
+.btn-outline:hover {
+  background: var(--sakura-pink);
+  color: #fff;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: var(--sakura-pink);
+  color: #fff;
+  padding: 14px 32px;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  border-radius: 6px;
+  transition: background 0.2s;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background: #D48898;
+}
+
+/* ============================================
+   フォーム共通
+   ============================================ */
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-sub);
+  margin-bottom: 6px;
+}
+
+.form-required {
+  background: var(--sakura-pink);
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  border: 1px solid #E8C5D0;
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-size: 15px;
+  color: var(--text-main);
+  background: #fff;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--sakura-pink);
+  box-shadow: 0 0 0 3px rgba(232, 160, 176, 0.15);
+}
+
+.form-error {
+  font-size: 12px;
+  color: #E05070;
+  margin-top: 4px;
+  display: none;
+}
+
+.form-error.is-visible {
+  display: block;
+}
+
+/* ============================================
+   テキストリンク
+   ============================================ */
+.text-link {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  color: var(--sakura-pink);
+  transition: opacity 0.2s;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+/* ============================================
+   送信完了ダイアログ
+   ============================================ */
+.dialog-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(45, 45, 45, 0.5);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialog-overlay.is-open {
+  display: flex;
+}
+
+.dialog {
+  background: #fff;
+  border-radius: 12px;
+  padding: 40px 32px;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+}
+
+.dialog-title {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: var(--text-main);
+  margin-bottom: 16px;
+}
+
+.dialog-text {
+  font-size: 14px;
+  color: var(--text-sub);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.dialog-close {
+  display: inline-block;
+  border: 1px solid var(--sakura-pink);
+  color: var(--sakura-pink);
+  padding: 10px 32px;
+  font-size: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dialog-close:hover {
+  background: var(--sakura-pink);
+  color: #fff;
+}
+
+/* ============================================
+   index.html - 自己紹介ダイジェスト
+   ============================================ */
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.intro-photo {
+  display: flex;
+  justify-content: center;
+}
+
+/* ============================================
+   index.html - 制作実績グリッド
+   ============================================ */
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ============================================
+   index.html - 桜CTAリンク
+   ============================================ */
+.sakura-cta-link {
+  display: block;
+  transition: transform 0.35s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+.sakura-cta-link:hover {
+  transform: scale(1.06);
+}
+
+.sakura-cta-svg {
+  width: 240px;
+  height: 280px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ============================================
+   about.html - ストーリー章
+   ============================================ */
+.story-chapter {
+  margin-bottom: 40px;
+}
+
+.story-title {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  border-left: 2px solid var(--sakura-pink);
+  padding-left: 16px;
+  margin-bottom: 16px;
+}
+
+.story-title-en {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--sakura-pink);
+}
+
+.story-title-jp {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: var(--text-main);
+}
+
+.story-text {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 2.0;
+  color: var(--text-sub);
+  padding-left: 18px;
+}
+
+/* ============================================
+   about.html - スキルカード
+   ============================================ */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.skill-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid var(--bg-badge);
+}
+
+.skill-name {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.skill-desc {
+  font-size: 13px;
+  color: var(--text-sub);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+/* スキルレベルドット */
+.skill-dots {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+/* 桜花びら1枚型スキルインジケーター（sakura3の花びらを忠実に再現） */
+.skill-sakura {
+  width: 20px;
+  height: 24px;
+  display: inline-block;
+  transform: rotate(15deg);
+  /* 花びらアウトライン（白抜き） */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 40 48' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 48 C12 38 0 28 0 16 C0 7 5 0 13 0 C16 0 18.5 2 20 5 C21.5 2 24 0 27 0 C35 0 40 7 40 16 C40 28 28 38 20 48Z' fill='none' stroke='%23E8A0B0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* 色あり（ピンク塗り） */
+.skill-sakura.is-filled {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 40 48' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 48 C12 38 0 28 0 16 C0 7 5 0 13 0 C16 0 18.5 2 20 5 C21.5 2 24 0 27 0 C35 0 40 7 40 16 C40 28 28 38 20 48Z' fill='%23E8A0B0' stroke='%23D4738B' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+/* 学習中バッジ */
+.skill-badge {
+  display: inline-block;
+  background: var(--bg-badge);
+  color: var(--sakura-pink);
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+/* ============================================
+   about.html - 使用ツールタグ
+   ============================================ */
+.tools-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.tool-tag {
+  border: 1px solid var(--sakura-pink);
+  color: var(--sakura-pink);
+  padding: 6px 18px;
+  border-radius: 12px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
+
+/* ============================================
+   works.html - 桜花びらカード
+   ============================================ */
+/* 段組みレイアウト */
+.petal-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+.petal-row--3 { gap: 32px; }
+.petal-row--2 { gap: 48px; }
+
+/* 個々のカード */
+.petal-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* ふわふわ揺れアニメーション */
+  animation: petalFloat 4s ease-in-out infinite;
+}
+
+.petal-item:nth-child(2) { animation-delay: 0.8s; }
+.petal-item:nth-child(3) { animation-delay: 1.6s; }
+
+@keyframes petalFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+/* カードリンク */
+.petal-card {
+  display: block;
+  position: relative;
+}
+
+/* 画像ラッパー（clipPathで花びら型に切り抜き） */
+.petal-image-wrap {
+  position: relative;
+  width: 220px;
+  height: 260px;
+  transition: transform 0.35s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+.petal-card:hover .petal-image-wrap {
+  transform: translateY(-10px) scale(1.04);
+}
+
+/* 画像をclipPathで花びら型に */
+.petal-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: url(#petal-clip);
+}
+
+/* 花びらのアウトラインSVG */
+.petal-outline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* ホバーオーバーレイ */
+.petal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: url(#petal-clip);
+  background: rgba(232, 160, 176, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.petal-overlay span {
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  font-family: var(--font-display);
+}
+
+.petal-card:hover .petal-overlay {
+  opacity: 1;
+}
+
+/* 花びら下の情報 */
+.petal-info {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.petal-name {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.petal-tag {
+  display: inline-block;
+  background: var(--bg-badge);
+  color: var(--sakura-pink);
+  font-size: 10px;
+  padding: 3px 12px;
+  border-radius: 12px;
+  margin-bottom: 4px;
+}
+
+.petal-comment {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+/* ============================================
+   appeal.html - 強み（左右交互レイアウト）
+   ============================================ */
+.strength-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  padding: 60px 0;
+  border-bottom: 1px solid var(--bg-badge);
+}
+
+.strength-item:last-child {
+  border-bottom: none;
+}
+
+/* 偶数番目は写真左・テキスト右（reverseクラスで制御） */
+.strength-item--reverse .strength-photo {
+  order: -1;
+}
+
+.strength-number {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--sakura-pink);
+  margin-bottom: 8px;
+}
+
+.strength-number-en {
+  font-size: 36px;
+}
+
+.strength-name {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: var(--text-main);
+  margin-bottom: 16px;
+}
+
+.strength-desc {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 2.0;
+  color: var(--text-sub);
+}
+
+.strength-photo img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ============================================
+   appeal.html - 安心材料カード
+   ============================================ */
+.assurance-heading {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  text-align: center;
+  color: var(--text-main);
+  margin-bottom: 48px;
+}
+
+.assurance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.assurance-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px;
+  border: 1px solid var(--bg-badge);
+}
+
+.assurance-card-title {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-main);
+  margin-bottom: 12px;
+}
+
+.assurance-card-text {
+  font-size: 14px;
+  color: var(--text-sub);
+  line-height: 1.8;
+}
+
+/* ============================================
+   contact.html - ヒーロー小さな桜飾り
+   ============================================ */
+.contact-petal-mini {
+  animation: contactMiniFloat 4s ease-in-out infinite;
+}
+
+@keyframes contactMiniFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+/* ============================================
+   privacy.html - ポリシー本文
+   ============================================ */
+.privacy-block {
+  margin-bottom: 40px;
+}
+
+.privacy-heading {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-main);
+  border-left: 2px solid var(--sakura-pink);
+  padding-left: 12px;
+  margin-bottom: 12px;
+}
+
+.privacy-text {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 2.0;
+  color: var(--text-sub);
+}
+
+.privacy-list {
+  padding-left: 24px;
+  margin-top: 8px;
+}
+
+.privacy-list li {
+  font-size: 14px;
+  color: var(--text-sub);
+  line-height: 2.0;
+  list-style: disc;
+}
+
+/* ============================================
+   ページ遷移オーバーレイ
+   ============================================ */
+/* オーバーレイ本体（薄ピンク背景・通常時は非表示） */
+.page-transition-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #FCE8EF;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* フェードイン状態 */
+.page-transition-overlay.is-active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* 桜花全体のコンテナ（5枚の花びらを格納） */
+.transition-sakura {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  opacity: 0;
+  transform: scale(0.3) rotate(0deg);
+}
+
+/* 回転アニメーション発動 */
+.transition-sakura.is-spinning {
+  animation: sakuraSpin 1.5s ease-in-out forwards;
+}
+
+@keyframes sakuraSpin {
+  0% {
+    opacity: 1;
+    transform: scale(0.3) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(180deg);
+  }
+  80% {
+    opacity: 0.8;
+    transform: scale(1.0) rotate(400deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.1) rotate(540deg);
+  }
+}
+
+/* 各花びら（5枚を72°ずつ配置） */
+.transition-sakura-petal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center bottom;
+}
+
+/* ============================================
+   レスポンシブ（768px以下）
+   ============================================ */
+@media (max-width: 768px) {
+  /* ヘッダー */
+  .header {
+    height: var(--header-height-sp);
+    padding: 0 20px;
+  }
+  .header-nav,
+  .header-cta-petal {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+
+  /* SP固定ボタン表示 */
+  .sp-fixed-cta {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 52px;
+    background: var(--sakura-pink);
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+
+  /* セクション */
+  .section { padding: 56px 0; }
+  .section-title { font-size: 24px; margin-bottom: 32px; }
+  .section-title-en { font-size: 28px; }
+
+  /* ヒーロー */
+  .hero-title { font-size: 36px; }
+  .hero-main-title { font-size: 32px !important; }
+
+  /* 自己紹介ダイジェスト SP */
+  .intro-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .intro-photo { order: -1; }
+  .profile-photo--large {
+    width: 200px;
+    height: 200px;
+  }
+
+  /* 制作実績グリッド SP */
+  .works-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* 桜CTA SP */
+  .sakura-cta-svg {
+    width: 180px;
+    height: 210px;
+  }
+
+  /* スキルグリッド SP */
+  .skill-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* 花びらカード SP */
+  .petal-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+  .petal-image-wrap {
+    width: 180px;
+    height: 210px;
+  }
+
+  /* 強み SP（縦並び） */
+  .strength-item {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 40px 0;
+  }
+  .strength-item--reverse .strength-photo {
+    order: 0;
+  }
+  .strength-number { font-size: 28px; }
+  .strength-number-en { font-size: 28px; }
+  .strength-photo img { height: 200px; }
+
+  /* 安心材料 SP */
+  .assurance-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .assurance-heading { font-size: 18px; }
+
+  /* フッター SP固定ボタン分の余白 */
+  .footer { padding-bottom: 84px; }
+}

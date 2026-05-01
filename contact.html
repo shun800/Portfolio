@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="新井 駿へのお問い合わせ。サイト制作のご依頼・お見積もりのご相談はこちらから。3営業日以内にご返信いたします。">
+  <title>CONTACT | Shun Arai Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ページ遷移オーバーレイ -->
+  <div class="page-transition-overlay" id="page-transition"></div>
+
+  <!-- ヘッダー -->
+  <header class="header" id="header">
+    <a href="index.html" class="header-logo">Shun Arai</a>
+    <nav class="header-nav">
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="works.html">WORKS</a>
+      <a href="appeal.html">APPEAL</a>
+    </nav>
+    <a href="contact.html" class="header-cta-petal" aria-label="お問い合わせ">
+      <svg viewBox="0 0 56 68" xmlns="http://www.w3.org/2000/svg">
+        <path class="petal-bg" d="M22 2 C16 8 4 20 4 36 C4 52 16 66 28 66 C40 66 52 52 52 36 C52 20 40 8 34 2 C31 6 28 10 28 10 C28 10 25 6 22 2Z" fill="#FEE8EF" stroke="#E8A0B0" stroke-width="1.5"/>
+        <text class="petal-text" x="28" y="42" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="13" fill="#E8A0B0" letter-spacing="1">Info</text>
+      </svg>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <div class="sp-menu" id="sp-menu">
+    <a href="index.html">HOME</a>
+    <a href="about.html">ABOUT</a>
+    <a href="works.html">WORKS</a>
+    <a href="appeal.html">APPEAL</a>
+    <a href="contact.html" class="is-active">INFO</a>
+  </div>
+
+  <!-- ヒーロー -->
+  <section class="hero hero--medium bg-section" id="hero">
+    <div class="sakura-container" data-petals="25"></div>
+
+    <!-- シンプルテキスト構成 -->
+    <div style="display:flex;flex-direction:column;align-items:center;z-index:2;">
+      <!-- 小さな桜飾り -->
+      <svg class="contact-petal-mini" viewBox="0 0 28 34" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:38px;margin-bottom:12px;">
+        <path d="M14 0 C20 0 28 8 28 16 C28 22 22 26 14 34 C6 26 0 22 0 16 C0 8 8 0 14 0Z" fill="#E8A0B0"/>
+      </svg>
+      <h1 style="font-family:var(--font-display);font-size:48px;font-weight:400;color:var(--text-main);letter-spacing:0.05em;">CONTACT</h1>
+      <p style="font-family:var(--font-serif);font-size:13px;color:var(--mauve);margin-top:8px;">お問い合わせ・ご依頼</p>
+    </div>
+  </section>
+
+  <!-- フォームセクション -->
+  <section class="section bg-off-white" id="contact-form-section">
+    <div class="container--narrow">
+      <!-- 連絡先情報 -->
+      <div style="text-align:center;margin-bottom:40px;" class="fade-in">
+        <p style="font-size:13px;color:var(--text-muted);">Email：shun8019@icloud.com</p>
+        <p style="font-size:12px;color:var(--mauve);margin-top:4px;">3営業日以内にご返信いたします</p>
+      </div>
+
+      <!-- フォーム -->
+      <form id="contact-form" class="fade-in" novalidate style="max-width:600px;margin:0 auto;">
+        <!-- お名前 -->
+        <div class="form-group">
+          <label class="form-label" for="name">お名前 <span class="form-required">必須</span></label>
+          <input type="text" id="name" class="form-input" placeholder="例：新井 駿" required>
+          <p class="form-error"></p>
+        </div>
+
+        <!-- メールアドレス -->
+        <div class="form-group">
+          <label class="form-label" for="email">メールアドレス <span class="form-required">必須</span></label>
+          <input type="email" id="email" class="form-input" placeholder="例：example@email.com" required>
+          <p class="form-error"></p>
+        </div>
+
+        <!-- 電話番号 -->
+        <div class="form-group">
+          <label class="form-label" for="tel">電話番号 <span class="form-required">必須</span></label>
+          <input type="tel" id="tel" class="form-input" placeholder="例：090-1234-5678" required>
+          <p class="form-error"></p>
+        </div>
+
+        <!-- お問い合わせ種別 -->
+        <div class="form-group">
+          <label class="form-label" for="type">お問い合わせ種別 <span class="form-required">必須</span></label>
+          <select id="type" class="form-select" required>
+            <option value="">選択してください</option>
+            <option value="制作依頼">サイト制作のご依頼</option>
+            <option value="見積もり">お見積もりのご相談</option>
+            <option value="その他">その他</option>
+          </select>
+          <p class="form-error"></p>
+        </div>
+
+        <!-- メッセージ -->
+        <div class="form-group">
+          <label class="form-label" for="message">メッセージ <span class="form-required">必須</span></label>
+          <textarea id="message" class="form-textarea" rows="5" placeholder="ご相談内容をお書きください" required></textarea>
+          <p class="form-error"></p>
+        </div>
+
+        <!-- 送信ボタン -->
+        <button type="submit" class="btn-primary">送信する</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- 送信完了ダイアログ -->
+  <div class="dialog-overlay" id="dialog-overlay">
+    <div class="dialog">
+      <h3 class="dialog-title">お問い合わせありがとうございます</h3>
+      <p class="dialog-text">3営業日以内にご連絡いたします。</p>
+      <button class="dialog-close" onclick="closeDialog()">閉じる</button>
+    </div>
+  </div>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <p class="footer-logo">Shun Arai</p>
+    <nav class="footer-nav">
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="works.html">WORKS</a>
+      <a href="appeal.html">APPEAL</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+    <p class="footer-privacy"><a href="privacy.html">プライバシーポリシー</a></p>
+    <p class="footer-copy">© 2025 Shun Arai. All Rights Reserved.</p>
+  </footer>
+
+  <a href="contact.html" class="sp-fixed-cta">お問い合わせ</a>
+  <script src="script.js"></script>
+  <script>
+    // contact.html専用：フォームバリデーション初期化
+    document.addEventListener('DOMContentLoaded', initContactForm);
+  </script>
+</body>
+</html>

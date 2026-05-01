@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="新井 駿の制作実績。カフェ・美容室・コーポレート・レストラン・アパレルECなど幅広い業種のWebサイトを制作しています。">
+  <title>WORKS | Shun Arai Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ページ遷移オーバーレイ -->
+  <div class="page-transition-overlay" id="page-transition"></div>
+
+  <!-- ヘッダー -->
+  <header class="header" id="header">
+    <a href="index.html" class="header-logo">Shun Arai</a>
+    <nav class="header-nav">
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="works.html" class="is-active">WORKS</a>
+      <a href="appeal.html">APPEAL</a>
+    </nav>
+    <a href="contact.html" class="header-cta-petal" aria-label="お問い合わせ">
+      <svg viewBox="0 0 56 68" xmlns="http://www.w3.org/2000/svg">
+        <path class="petal-bg" d="M22 2 C16 8 4 20 4 36 C4 52 16 66 28 66 C40 66 52 52 52 36 C52 20 40 8 34 2 C31 6 28 10 28 10 C28 10 25 6 22 2Z" fill="#FEE8EF" stroke="#E8A0B0" stroke-width="1.5"/>
+        <text class="petal-text" x="28" y="42" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="13" fill="#E8A0B0" letter-spacing="1">Info</text>
+      </svg>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <div class="sp-menu" id="sp-menu">
+    <a href="index.html">HOME</a>
+    <a href="about.html">ABOUT</a>
+    <a href="works.html" class="is-active">WORKS</a>
+    <a href="appeal.html">APPEAL</a>
+    <a href="contact.html">INFO</a>
+  </div>
+
+  <!-- ヒーロー -->
+  <section class="hero hero--medium bg-section" id="hero">
+    <div class="sakura-container" data-petals="15"></div>
+    <h1 class="hero-title">WORKS</h1>
+    <p class="hero-subtitle">制作実績</p>
+  </section>
+
+  <!-- 桜花びらカードセクション -->
+  <section class="section bg-off-white" id="works-main" style="position:relative;overflow:hidden;">
+    <div class="sakura-container" data-petals="10" data-opacity="0.3"></div>
+
+    <div class="container" style="position:relative;z-index:2;">
+      <!-- SVG定義（clipPath用） -->
+      <svg width="0" height="0" style="position:absolute;">
+        <defs>
+          <!-- 桜花びら型clipPath -->
+          <clipPath id="petal-clip" clipPathUnits="objectBoundingBox">
+            <path d="M0.5,0 C0.7,0 1,0.21 1,0.46 C1,0.65 0.78,0.75 0.5,1 C0.22,0.75 0,0.65 0,0.46 C0,0.21 0.3,0 0.5,0Z"/>
+          </clipPath>
+        </defs>
+      </svg>
+
+      <!-- 上段3枚 -->
+      <div class="petal-row petal-row--3">
+        <!-- 1. Cafe Blossom -->
+        <div class="petal-item fade-in" style="animation-delay:0s;">
+          <a href="https://cafe-blossom-seven.vercel.app/" target="_blank" rel="noopener noreferrer" class="petal-card">
+            <div class="petal-image-wrap">
+              <img src="images/works_cafe.jpg" alt="Cafe Blossom" class="petal-image">
+              <!-- 花びらアウトライン -->
+              <svg class="petal-outline" viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg">
+                <path d="M110,0 C154,0 220,54.6 220,119.6 C220,169 171.6,195 110,260 C48.4,195 0,169 0,119.6 C0,54.6 66,0 110,0Z" fill="none" stroke="#E8A0B0" stroke-width="1.5"/>
+              </svg>
+              <!-- ホバーオーバーレイ -->
+              <div class="petal-overlay">
+                <span>VIEW SITE →</span>
+              </div>
+            </div>
+          </a>
+          <div class="petal-info">
+            <h3 class="petal-name">Cafe Blossom</h3>
+            <span class="petal-tag">カフェ</span>
+            <p class="petal-comment">地元カフェの温かみをやさしい配色と手書き感で表現</p>
+          </div>
+        </div>
+
+        <!-- 2. Hair Salon RICHE -->
+        <div class="petal-item fade-in" style="animation-delay:0.1s;">
+          <a href="https://hair-salon-riche-lu4o.vercel.app/" target="_blank" rel="noopener noreferrer" class="petal-card">
+            <div class="petal-image-wrap">
+              <img src="images/works_salon.jpg" alt="Hair Salon RICHE" class="petal-image">
+              <svg class="petal-outline" viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg">
+                <path d="M110,0 C154,0 220,54.6 220,119.6 C220,169 171.6,195 110,260 C48.4,195 0,169 0,119.6 C0,54.6 66,0 110,0Z" fill="none" stroke="#E8A0B0" stroke-width="1.5"/>
+              </svg>
+              <div class="petal-overlay"><span>VIEW SITE →</span></div>
+            </div>
+          </a>
+          <div class="petal-info">
+            <h3 class="petal-name">Hair Salon RICHE</h3>
+            <span class="petal-tag">美容室</span>
+            <p class="petal-comment">表参道サロンの上質感をモノトーンと余白で演出</p>
+          </div>
+        </div>
+
+        <!-- 3. NextBridge -->
+        <div class="petal-item fade-in" style="animation-delay:0.2s;">
+          <a href="https://next-bridge-nkek.vercel.app/" target="_blank" rel="noopener noreferrer" class="petal-card">
+            <div class="petal-image-wrap">
+              <img src="images/works_corporate.jpg" alt="株式会社NextBridge" class="petal-image">
+              <svg class="petal-outline" viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg">
+                <path d="M110,0 C154,0 220,54.6 220,119.6 C220,169 171.6,195 110,260 C48.4,195 0,169 0,119.6 C0,54.6 66,0 110,0Z" fill="none" stroke="#E8A0B0" stroke-width="1.5"/>
+              </svg>
+              <div class="petal-overlay"><span>VIEW SITE →</span></div>
+            </div>
+          </a>
+          <div class="petal-info">
+            <h3 class="petal-name">株式会社NextBridge</h3>
+            <span class="petal-tag">コーポレート・SaaS</span>
+            <p class="petal-comment">SaaSの信頼感を数字とクリーンなレイアウトで訴求</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 下段2枚（中央揃え） -->
+      <div class="petal-row petal-row--2">
+        <!-- 4. Trattoria SOLE -->
+        <div class="petal-item fade-in" style="animation-delay:0.3s;">
+          <a href="https://trattoria-sole-gk7s.vercel.app/" target="_blank" rel="noopener noreferrer" class="petal-card">
+            <div class="petal-image-wrap">
+              <img src="images/works_italian.jpg" alt="Trattoria SOLE" class="petal-image">
+              <svg class="petal-outline" viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg">
+                <path d="M110,0 C154,0 220,54.6 220,119.6 C220,169 171.6,195 110,260 C48.4,195 0,169 0,119.6 C0,54.6 66,0 110,0Z" fill="none" stroke="#E8A0B0" stroke-width="1.5"/>
+              </svg>
+              <div class="petal-overlay"><span>VIEW SITE →</span></div>
+            </div>
+          </a>
+          <div class="petal-info">
+            <h3 class="petal-name">Trattoria SOLE</h3>
+            <span class="petal-tag">イタリアンレストラン</span>
+            <p class="petal-comment">イタリアの温もりをシェフストーリーと季節感で表現</p>
+          </div>
+        </div>
+
+        <!-- 5. URBAN CLOSET -->
+        <div class="petal-item fade-in" style="animation-delay:0.4s;">
+          <a href="https://urban-closet-three.vercel.app/" target="_blank" rel="noopener noreferrer" class="petal-card">
+            <div class="petal-image-wrap">
+              <img src="images/works_apparel.jpg" alt="URBAN CLOSET" class="petal-image">
+              <svg class="petal-outline" viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg">
+                <path d="M110,0 C154,0 220,54.6 220,119.6 C220,169 171.6,195 110,260 C48.4,195 0,169 0,119.6 C0,54.6 66,0 110,0Z" fill="none" stroke="#E8A0B0" stroke-width="1.5"/>
+              </svg>
+              <div class="petal-overlay"><span>VIEW SITE →</span></div>
+            </div>
+          </a>
+          <div class="petal-info">
+            <h3 class="petal-name">URBAN CLOSET</h3>
+            <span class="petal-tag">アパレルEC</span>
+            <p class="petal-comment">ジェンダーレスアパレルをスタイリッシュなECサイトで構築</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <p class="footer-logo">Shun Arai</p>
+    <nav class="footer-nav">
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="works.html">WORKS</a>
+      <a href="appeal.html">APPEAL</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+    <p class="footer-privacy"><a href="privacy.html">プライバシーポリシー</a></p>
+    <p class="footer-copy">© 2025 Shun Arai. All Rights Reserved.</p>
+  </footer>
+
+  <a href="contact.html" class="sp-fixed-cta">お問い合わせ</a>
+  <script src="script.js"></script>
+</body>
+</html>

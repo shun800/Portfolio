@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="新井 駿（Shun Arai）のポートフォリオサイト。AIツールを活用したスピーディーなWeb制作で、想いをかたちにします。">
+  <title>Shun Arai | Web Designer & Creator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ページ遷移オーバーレイ -->
+  <div class="page-transition-overlay" id="page-transition"></div>
+
+  <!-- ========== ヘッダー ========== -->
+  <header class="header" id="header">
+    <a href="index.html" class="header-logo">Shun Arai</a>
+    <nav class="header-nav">
+      <a href="index.html" class="is-active">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="works.html">WORKS</a>
+      <a href="appeal.html">APPEAL</a>
+    </nav>
+    <a href="contact.html" class="header-cta-petal" aria-label="お問い合わせ">
+      <svg viewBox="0 0 40 48" xmlns="http://www.w3.org/2000/svg">
+        <path class="petal-bg" d="M20 48 C12 38 0 28 0 16 C0 7 5 0 13 0 C16 0 18.5 2 20 5 C21.5 2 24 0 27 0 C35 0 40 7 40 16 C40 28 28 38 20 48Z" fill="#FEE8EF" stroke="#E8A0B0" stroke-width="1.5"/>
+        <text class="petal-text" x="20" y="26" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="11" fill="#E8A0B0" letter-spacing="0.5">Info</text>
+      </svg>
+    </a>
+    <!-- SPハンバーガー -->
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- SPオーバーレイメニュー -->
+  <div class="sp-menu" id="sp-menu">
+    <a href="index.html" class="is-active">HOME</a>
+    <a href="about.html">ABOUT</a>
+    <a href="works.html">WORKS</a>
+    <a href="appeal.html">APPEAL</a>
+    <a href="contact.html">INFO</a>
+  </div>
+
+  <!-- ========== ヒーローセクション ========== -->
+  <section class="hero hero--full bg-off-white" id="hero">
+    <!-- 桜の花びら落下 -->
+    <div class="sakura-container" data-petals="30"></div>
+
+    <!-- メインコピー -->
+    <h1 class="hero-main-title" style="font-family:var(--font-display);font-size:56px;font-weight:400;color:var(--text-main);letter-spacing:0.05em;z-index:2;">Crafting the Web, with Heart.</h1>
+    <p style="font-family:var(--font-serif);font-size:16px;color:var(--text-muted);margin-top:16px;z-index:2;">想いをかたちにする、Web制作者。</p>
+    <p style="font-family:var(--font-display);font-size:13px;letter-spacing:0.25em;color:var(--mauve);margin-top:24px;z-index:2;">Shun Arai</p>
+
+    <!-- スクロールインジケーター（下矢印） -->
+    <div class="scroll-indicator">
+      <span class="scroll-text">SCROLL</span>
+      <span>↓</span>
+    </div>
+  </section>
+
+  <!-- ========== 横スクロールテキスト帯 ========== -->
+  <div class="marquee">
+    <div class="marquee-inner">
+      <span>WEB DESIGN　･　HTML / CSS　･　JAVASCRIPT　･　RESPONSIVE　･　</span>
+      <span>WEB DESIGN　･　HTML / CSS　･　JAVASCRIPT　･　RESPONSIVE　･　</span>
+      <span>WEB DESIGN　･　HTML / CSS　･　JAVASCRIPT　･　RESPONSIVE　･　</span>
+      <span>WEB DESIGN　･　HTML / CSS　･　JAVASCRIPT　･　RESPONSIVE　･　</span>
+    </div>
+  </div>
+
+  <!-- ========== 自己紹介ダイジェスト ========== -->
+  <section class="section bg-off-white" id="intro">
+    <div class="container">
+      <div class="intro-grid fade-in">
+        <!-- 左：プロフィール写真プレースホルダー -->
+        <div class="intro-photo">
+          <div class="profile-photo profile-photo--large">
+            <!-- ベイマックス風シルエットSVG（後で img に差し替え可能） -->
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="プロフィール写真プレースホルダー">
+              <!-- 体（楕円） -->
+              <ellipse cx="100" cy="135" rx="55" ry="60" fill="#fff"/>
+              <!-- 頭（円） -->
+              <circle cx="100" cy="65" r="40" fill="#fff"/>
+            </svg>
+          </div>
+        </div>
+        <!-- 右：テキスト -->
+        <div class="intro-text">
+          <h2 style="font-family:var(--font-serif);font-size:22px;color:var(--text-main);margin-bottom:20px;">はじめまして、新井 駿です。</h2>
+          <p style="font-family:var(--font-sans);font-size:15px;line-height:1.9;color:var(--text-sub);margin-bottom:24px;">群馬県出身のWeb Designer / Creator。AIツールを活用したスピーディーな提案と、クライアントと心を込めて一緒に作るWeb制作を大切にしています。</p>
+          <a href="about.html" class="text-link">ABOUT ME →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 制作実績ダイジェスト ========== -->
+  <section class="section bg-section" id="works-digest">
+    <div class="container">
+      <p class="section-label">WORKS</p>
+      <h2 class="section-title">制作実績</h2>
+
+      <div class="works-grid fade-in">
+        <!-- カード1: Cafe Blossom -->
+        <div class="card">
+          <img src="images/works_cafe.jpg" alt="Cafe Blossom" class="card-thumbnail" loading="lazy">
+          <div class="card-body">
+            <h3 class="card-name">Cafe Blossom</h3>
+            <span class="card-tag">カフェ</span>
+            <p class="card-comment">地元カフェの温かみをやさしい配色と手書き感で表現</p>
+          </div>
+        </div>
+        <!-- カード2: Hair Salon RICHE -->
+        <div class="card">
+          <img src="images/works_salon.jpg" alt="Hair Salon RICHE" class="card-thumbnail" loading="lazy">
+          <div class="card-body">
+            <h3 class="card-name">Hair Salon RICHE</h3>
+            <span class="card-tag">美容室</span>
+            <p class="card-comment">表参道サロンの上質感をモノトーンと余白で演出</p>
+          </div>
+        </div>
+        <!-- カード3: NextBridge -->
+        <div class="card">
+          <img src="images/works_corporate.jpg" alt="株式会社NextBridge" class="card-thumbnail" loading="lazy">
+          <div class="card-body">
+            <h3 class="card-name">株式会社NextBridge</h3>
+            <span class="card-tag">コーポレート</span>
+            <p class="card-comment">SaaSの信頼感を数字とクリーンなレイアウトで訴求</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:40px;" class="fade-in">
+        <a href="works.html" class="btn-outline">すべての実績を見る →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 桜CTAセクション ========== -->
+  <section class="section bg-off-white" id="sakura-cta" style="position:relative;overflow:hidden;">
+    <!-- 桜の花びら落下（薄め） -->
+    <div class="sakura-container" data-petals="12" data-opacity="0.5"></div>
+
+    <div class="container" style="display:flex;flex-direction:column;align-items:center;position:relative;z-index:2;">
+      <div class="fade-in">
+        <!-- 桜の花びら型SVGリンク -->
+        <a href="contact.html" class="sakura-cta-link" id="sakura-cta-link">
+          <svg class="sakura-cta-svg" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+            <!-- 花びら型背景 -->
+            <path d="M100 0 C140 0 200 50 200 110 C200 155 155 180 100 240 C45 180 0 155 0 110 C0 50 60 0 100 0Z"
+                  fill="#FEE8EF" stroke="#E8A0B0" stroke-width="1.5"/>
+            <!-- テキスト -->
+            <text x="100" y="128" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="20" fill="#E8A0B0" letter-spacing="1">Contact</text>
+          </svg>
+        </a>
+        <p style="font-family:var(--font-serif);font-size:14px;color:var(--text-muted);margin-top:16px;text-align:center;">お気軽にご相談ください</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== フッター ========== -->
+  <footer class="footer">
+    <p class="footer-logo">Shun Arai</p>
+    <nav class="footer-nav">
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="works.html">WORKS</a>
+      <a href="appeal.html">APPEAL</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+    <p class="footer-privacy"><a href="privacy.html">プライバシーポリシー</a></p>
+    <p class="footer-copy">© 2025 Shun Arai. All Rights Reserved.</p>
+  </footer>
+
+  <!-- SP固定お問い合わせボタン -->
+  <a href="contact.html" class="sp-fixed-cta">お問い合わせ</a>
+
+  <script src="script.js"></script>
+</body>
+</html>
