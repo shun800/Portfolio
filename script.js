@@ -38,6 +38,16 @@ function initHamburger() {
     document.body.style.overflow = menu.classList.contains('is-open') ? 'hidden' : '';
   });
 
+  // ×閉じるボタンをクリックしたら閉じる
+  const closeBtn = document.querySelector('.sp-menu-close');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      btn.classList.remove('is-active');
+      menu.classList.remove('is-open');
+      document.body.style.overflow = '';
+    });
+  }
+
   // メニュー内リンクをクリックしたら閉じる
   menu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
