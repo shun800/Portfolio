@@ -195,11 +195,36 @@ function initContactForm() {
       isValid = false;
     }
 
-    // バリデーション通過で送信完了ダイアログ表示
+    // バリデーション通過でFormspreeへ送信
     if (isValid) {
-      const dialog = document.querySelector('.dialog-overlay');
-      if (dialog) dialog.classList.add('is-open');
-      form.reset();
+      const formData = new FormData(form);
+      const submitBtn = form.querySelector('button[type="submit"]');
+      // 送信中の表示
+      submitBtn.textContent = '送信中...';
+      submitBtn.disabled = true;
+
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(response => {
+        if (response.ok) {
+          // 送信成功：ダイアログ表示＆フォームリセット
+          const dialog = document.querySelector('.dialog-overlay');
+          if (dialog) dialog.classList.add('is-open');
+          form.reset();
+        } else {
+          alert('送信に失敗しました。時間をおいて再度お試しください。');
+        }
+      })
+      .catch(() => {
+        alert('送信に失敗しました。ネットワーク接続を確認してください。');
+      })
+      .finally(() => {
+        submitBtn.textContent = '送信する';
+        submitBtn.disabled = false;
+      });
     }
   });
 }

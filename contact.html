@@ -80,32 +80,32 @@
       </div>
 
       <!-- フォーム -->
-      <form id="contact-form" class="fade-in" novalidate style="max-width:600px;margin:0 auto;">
+      <form id="contact-form" class="fade-in" novalidate style="max-width:600px;margin:0 auto;" action="https://formspree.io/f/xzdozlva" method="POST">
         <!-- お名前 -->
         <div class="form-group">
           <label class="form-label" for="name">お名前 <span class="form-required">必須</span></label>
-          <input type="text" id="name" class="form-input" placeholder="例：山田 太郎" required>
+          <input type="text" id="name" name="name" class="form-input" placeholder="例：山田 太郎" required>
           <p class="form-error"></p>
         </div>
 
         <!-- メールアドレス -->
         <div class="form-group">
           <label class="form-label" for="email">メールアドレス <span class="form-required">必須</span></label>
-          <input type="email" id="email" class="form-input" placeholder="例：example@email.com" required>
+          <input type="email" id="email" name="email" class="form-input" placeholder="例：example@email.com" required>
           <p class="form-error"></p>
         </div>
 
         <!-- 電話番号 -->
         <div class="form-group">
           <label class="form-label" for="tel">電話番号 <span class="form-required">必須</span></label>
-          <input type="tel" id="tel" class="form-input" placeholder="例：090-1234-5678" required>
+          <input type="tel" id="tel" name="tel" class="form-input" placeholder="例：090-1234-5678" required>
           <p class="form-error"></p>
         </div>
 
         <!-- お問い合わせ種別 -->
         <div class="form-group">
           <label class="form-label" for="type">お問い合わせ種別 <span class="form-required">必須</span></label>
-          <select id="type" class="form-select" required>
+          <select id="type" name="type" class="form-select" required>
             <option value="">選択してください</option>
             <option value="制作依頼">サイト制作のご依頼</option>
             <option value="見積もり">お見積もり・ご相談</option>
@@ -117,7 +117,7 @@
         <!-- メッセージ -->
         <div class="form-group">
           <label class="form-label" for="message">メッセージ <span class="form-required">必須</span></label>
-          <textarea id="message" class="form-textarea" rows="5" placeholder="ご相談の内容をお書きください" required></textarea>
+          <textarea id="message" name="message" class="form-textarea" rows="5" placeholder="ご相談の内容をお書きください" required></textarea>
           <p class="form-error"></p>
         </div>
 
