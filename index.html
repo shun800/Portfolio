@@ -22,17 +22,30 @@
       <a href="appeal.html">APPEAL</a>
     </nav>
     <a href="contact.html" class="header-cta-petal" aria-label="お問い合わせ">
-      <svg viewBox="0 0 50 40" xmlns="http://www.w3.org/2000/svg">
-        <!-- 手紙（一番奥・通常時は封筒の裏に隠れている） -->
-        <rect class="env-letter" x="11" y="14" width="28" height="18" rx="2" fill="#fff" stroke="#E8A0B0" stroke-width="0.8"/>
-        <line class="env-letter" x1="15" y1="20" x2="35" y2="20" stroke="#E8A0B0" stroke-width="0.6" opacity="0.4"/>
-        <line class="env-letter" x1="15" y1="24" x2="31" y2="24" stroke="#E8A0B0" stroke-width="0.6" opacity="0.4"/>
-        <!-- 封筒本体（手紙を覆い隠す） -->
-        <rect x="3" y="12" width="44" height="26" rx="3" fill="#FEE8EF" stroke="#E8A0B0" stroke-width="1.2"/>
-        <!-- 封筒フタの固定輪郭（常に表示） -->
-        <path d="M3.5,12.5 L46.5,12.5 L25,28Z" fill="none" stroke="#E8A0B0" stroke-width="1" stroke-linejoin="round"/>
-        <!-- 封筒フタ（ホバーで上に開く） -->
-        <path class="env-flap" d="M3.5,12.5 L46.5,12.5 L25,28Z" fill="#F8D0DC" stroke="#E8A0B0" stroke-width="1" stroke-linejoin="round"/>
+      <svg viewBox="0 0 50 44" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- 手紙の表示範囲（上部=全幅 + 下部=三角に沿う） -->
+          <clipPath id="letter-clip">
+            <path d="M0,0 L50,0 L50,25 L46.5,25 L25,40.5 L3.5,25 L0,25Z"/>
+          </clipPath>
+        </defs>
+        <!-- 封筒本体 -->
+        <rect x="3" y="16" width="44" height="26" rx="3" fill="#FEE8EF" stroke="#E8A0B0" stroke-width="1.2"/>
+        <!-- V字折り目（ホバーで表示） -->
+        <path class="env-fold" d="M3.5,16.5 L25,34 L46.5,16.5" fill="none" stroke="#E8A0B0" stroke-width="0.8" stroke-linejoin="round"/>
+        <!-- 開いたフタ（上向き三角・手紙の後ろ・ホバーで表示） -->
+        <path class="env-flap-open" d="M3.5,16.5 L46.5,16.5 L25,1Z" fill="#F8D0DC" stroke="#E8A0B0" stroke-width="1" stroke-linejoin="round"/>
+        <!-- 手紙グループ（clipPathで三角ギリギリまで表示） -->
+        <g class="env-letter" clip-path="url(#letter-clip)">
+          <rect x="9" y="16" width="32" height="120" rx="2" fill="#fff" stroke="#E8A0B0" stroke-width="0.8"/>
+          <line x1="14" y1="22" x2="36" y2="22" stroke="#E8A0B0" stroke-width="0.5" opacity="0.5"/>
+          <line x1="14" y1="27" x2="36" y2="27" stroke="#E8A0B0" stroke-width="0.5" opacity="0.5"/>
+          <line x1="14" y1="32" x2="32" y2="32" stroke="#E8A0B0" stroke-width="0.5" opacity="0.5"/>
+        </g>
+        <!-- 封筒フタの固定輪郭（ホバーで消える） -->
+        <path class="env-outline" d="M3.5,16.5 L46.5,16.5 L25,32Z" fill="none" stroke="#E8A0B0" stroke-width="1" stroke-linejoin="round"/>
+        <!-- 閉じたフタ（ホバーで消える） -->
+        <path class="env-flap" d="M3.5,16.5 L46.5,16.5 L25,32Z" fill="#F8D0DC" stroke="#E8A0B0" stroke-width="1" stroke-linejoin="round"/>
       </svg>
     </a>
     <!-- SPハンバーガー -->
@@ -70,10 +83,10 @@
   <!-- ========== 横スクロールテキスト帯 ========== -->
   <div class="marquee">
     <div class="marquee-inner">
-      <span>WEB DESIGN　･　HTML / CSS　･　JAVASCRIPT　･　RESPONSIVE　･　</span>
-      <span>WEB DESIGN　･　HTML / CSS　･　JAVASCRIPT　･　RESPONSIVE　･　</span>
-      <span>WEB DESIGN　･　HTML / CSS　･　JAVASCRIPT　･　RESPONSIVE　･　</span>
-      <span>WEB DESIGN　･　HTML / CSS　･　JAVASCRIPT　･　RESPONSIVE　･　</span>
+      <span>WEB DESIGN　･　HTML / CSS　･　JAVASCRIPT　･　RESPONSIVE　･　GIT / GITHUB　･　VERCEL　･　</span>
+      <span>WEB DESIGN　･　HTML / CSS　･　JAVASCRIPT　･　RESPONSIVE　･　GIT / GITHUB　･　VERCEL　･　</span>
+      <span>WEB DESIGN　･　HTML / CSS　･　JAVASCRIPT　･　RESPONSIVE　･　GIT / GITHUB　･　VERCEL　･　</span>
+      <span>WEB DESIGN　･　HTML / CSS　･　JAVASCRIPT　･　RESPONSIVE　･　GIT / GITHUB　･　VERCEL　･　</span>
     </div>
   </div>
 
