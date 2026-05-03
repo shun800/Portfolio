@@ -818,6 +818,19 @@ button { cursor: pointer; }
   gap: 24px;
 }
 
+/* カードリンク（aタグ化対応） */
+a.card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+a.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
 /* ============================================
    index.html - 桜CTAリンク
    ============================================ */
